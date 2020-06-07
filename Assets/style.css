@@ -1,64 +1,70 @@
-.input-group
-{
-    margin-bottom:10px;
+.input-group {
+  margin-bottom: 10px;
 }
 
 a {
-    color:white;
-    text-decoration: none;
-    background-color: transparent;
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
 }
-.container .homepage{
-margin-left: 90%;
-margin-right: auto;
-margin-top: 10%;
-width: 70%;
-text-align: center;
+.container .homepage {
+  margin-left: 90%;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 70%;
+  text-align: center;
 }
-.questions{
-    margin-left: 20%;
-    margin-right: auto;
-    margin-top: 10%;
-    width: 40%;
-    text-align: center;
-    }
-
- .homepage{
-    margin-top: 10%;
-    width: 40%;
-
-    text-align: center;
-    }
-
-h1{
-    margin-bottom: 20px;
+.questions {
+  margin-left: 20%;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 40%;
+  text-align: center;
 }
 
- .custom-btn{
-    background-color: blueviolet;
+button {
+  margin-bottom: 5px;
+  color: white;
+}
+
+.homepage {
+  margin-top: 10%;
+  width: 40%;
+  text-align: center;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+button:hover {
+  opacity: 0.7;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.custom-btn {
+  background-color: blueviolet;
 }
 input {
-    background-color: white;
+  background-color: white;
+}
+.form-check {
+  margin-bottom: 10px;
 }
 
-
-@media screen and (max-width: 1240px) {
-   .container .homepage {
-
-      width : 100%;
-      /* margin-bottom: 30%; */
-     
-
-    }	
-    .questions {
-
-        width : 90%;
-        /* margin-bottom: 30%; */
-        margin-right: 1%;
-        margin-left: 6%;
-  
-      } 
-    
-     
+@media screen and (max-width: 768px) {
+  .container .homepage {
+    width: 80%;
+    /* margin-bottom: 30%; */
   }
-
+  .questions {
+    width: 90%;
+    /* margin-bottom: 30%; */
+    margin-right: 1%;
+    margin-left: 6%;
+  }
+}
