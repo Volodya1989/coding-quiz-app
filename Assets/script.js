@@ -53,6 +53,60 @@ var questions = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "question 4__",
+    options: [
+      {
+        id: 1,
+        label: "1. Answer 4A",
+      },
+      {
+        id: 0,
+        label: "2. Answer 4B",
+      },
+      {
+        id: 0,
+        label: "3.Answer 4C",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "question 5__",
+    options: [
+      {
+        id: 1,
+        label: "1. Answer 5A",
+      },
+      {
+        id: 0,
+        label: "2. Answer 5B",
+      },
+      {
+        id: 0,
+        label: "3.Answer 5C",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "question 6__",
+    options: [
+      {
+        id: 1,
+        label: "1. Answer 5A",
+      },
+      {
+        id: 0,
+        label: "2. Answer 5B",
+      },
+      {
+        id: 0,
+        label: "3.Answer 5C",
+      },
+    ],
+  },
 ];
 
 var correctAnswers = [
@@ -67,6 +121,18 @@ var correctAnswers = [
   {
     questionId: 2,
     optionId: "2. Answer 3B",
+  },
+  {
+    questionId: 3,
+    optionId: "3.Answer 4C",
+  },
+  {
+    questionId: 4,
+    optionId: "1. Answer 5A",
+  },
+  {
+    questionId: 5,
+    optionId: "3. Answer 6A",
   },
 ];
 
