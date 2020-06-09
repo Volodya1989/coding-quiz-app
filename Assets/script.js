@@ -22,15 +22,15 @@ var questions = [
     title: "question 2__",
     options: [
       {
-        id: 0,
+        id: 1,
         label: "1. Answer 2A",
       },
       {
-        id: 1,
+        id: 0,
         label: "2. Answer 2B",
       },
       {
-        id: 2,
+        id: 0,
         label: "3.Answer 2C",
       },
     ],
@@ -40,31 +40,35 @@ var questions = [
     title: "question 3__",
     options: [
       {
-        id: 0,
+        id: 1,
         label: "1. Answer 3A",
       },
       {
-        id: 1,
+        id: 0,
         label: "2. Answer 3B",
       },
       {
-        id: 2,
+        id: 0,
         label: "3.Answer 3C",
       },
     ],
   },
 ];
 
-var correctAnswers = [{
-  questionId: 0,   
-  optionId: "1. Answer 1A"
-}, {
-  questionId: 1,
-  optionId: "1. Answer 2A"
-}, {
-  questionId: 2,
-  optionId: "1. Answer 3A"
-}];
+var correctAnswers = [
+  {
+    questionId: 0,
+    optionId: "1. Answer 1A",
+  },
+  {
+    questionId: 1,
+    optionId:"3.Answer 2C",
+  },
+  {
+    questionId: 2,
+    optionId: "2. Answer 3B",
+  },
+];
 
 var startQuizBtn = document.querySelector("#start-quiz-button");
 var welcomePage = document.querySelector("#greeting");
@@ -73,7 +77,6 @@ var titleQuestion = document.querySelector("#question-title");
 var answersOnQuestions = document.querySelector("#question-options");
 var hintAnswer = document.querySelector("#question-hint");
 var lineH = document.querySelector("#line");
-
 
 var timeEl = document.querySelector("#timer");
 // var mainEl = document.getElementById("main");
@@ -87,8 +90,8 @@ function countDownTimer() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
-        timeEl.textContent = "";
+      // sendMessage();
+      // timeEl.textContent = "";
     }
   }, 1000);
 }
@@ -106,11 +109,11 @@ startQuizBtn.addEventListener("click", function () {
 var index = 0;
 
 function showQuestion() {
-  answersOnQuestions.innerHTML="";
+  answersOnQuestions.innerHTML = "";
   questionPage.setAttribute("style", "display: block");
   titleQuestion.textContent = questions[index].title;
 
-  for (var j = 0; j < 3; j++) {
+  for (var j = 0; j < questions.length; j++) {
     let answers = questions[index].options[j].label;
     // Create list item
     var li = document.createElement("li");
@@ -126,36 +129,46 @@ function showQuestion() {
     answersOnQuestions.appendChild(li);
   }
 
-
-// how to make hint show up  and to switch page????????????????
-  button.addEventListener("click", function () {
-    
-  });
+  // how to make hint show up  and to switch page????????????????
+  button.addEventListener("click", function () {});
 }
-// correctAnswers[index].optionId
-function pushButton (){
-  if(index===questions.length){
+
+function pushButton() {
+  if (index === questions.length) {
     //this is end of quiz
-}
-var correctAnswer = correctAnswers[index].optionId;
+  
+  }
+  var correctAnswer = correctAnswers[index].optionId;
   index++;
-console.log(this.value);
+  console.log(this.value);
 
-  if (correctAnswer===this.value) {
-    setTimeout(function(){
-      hintAnswer.textContent="";
-      lineH.innerHTML="";
-
+  if (correctAnswer === this.value) {
+    setTimeout(function () {
+      hintAnswer.textContent = "";
+      lineH.innerHTML = "";
     }, 1000);
 
     var line = document.createElement("hr");
     lineH.appendChild(line);
     hintAnswer.textContent = "Correct";
     console.log("correct");
-  } 
+  }
+
+  //not  display wrong answers!!!!!
+
+  else if (correctAnswer !== this.value){
+    setTimeout(function(){
+      hintAnswer.textContent="";
+      lineH.innerHTML="";
+    }, 1000);
+
+    var line = document.createElement("hr");
+    lineH.appendChild(line);
+    hintAnswer.textContent = "Wrong";
+    console.log("wrong");
+
+  }
 
   showQuestion();
-  console.log("click")
+  console.log("click");
 }
-
-
