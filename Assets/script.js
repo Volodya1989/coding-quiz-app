@@ -55,12 +55,25 @@ var questions = [
   },
 ];
 
+var correctAnswers = [{
+  questionId: 0,   
+  optionId: "1. Answer 1A"
+}, {
+  questionId: 1,
+  optionId: "1. Answer 2A"
+}, {
+  questionId: 2,
+  optionId: "1. Answer 3A"
+}];
+
 var startQuizBtn = document.querySelector("#start-quiz-button");
 var welcomePage = document.querySelector("#greeting");
 var questionPage = document.querySelector("#question");
 var titleQuestion = document.querySelector("#question-title");
 var answersOnQuestions = document.querySelector("#question-options");
 var hintAnswer = document.querySelector("#question-hint");
+var lineH = document.querySelector("#line");
+
 
 var timeEl = document.querySelector("#timer");
 // var mainEl = document.getElementById("main");
@@ -74,15 +87,13 @@ function countDownTimer() {
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      // sendMessage();
-      //   timeEl.textContent = "";
-      //   speedRead();
+      sendMessage();
+        timeEl.textContent = "";
     }
   }, 1000);
 }
 function hideWelcomePage() {
   var logoPage = document.querySelector(".logo");
-
   welcomePage.setAttribute("style", "display: none");
   logoPage.setAttribute("style", "display:none");
 }
@@ -90,55 +101,61 @@ function hideWelcomePage() {
 startQuizBtn.addEventListener("click", function () {
   countDownTimer();
   hideWelcomePage();
-  showFirstQuestion();
+  showQuestion();
 });
+var index = 0;
 
-function showFirstQuestion() {
+function showQuestion() {
+  answersOnQuestions.innerHTML="";
   questionPage.setAttribute("style", "display: block");
-  titleQuestion.textContent = questions[0].title;
+  titleQuestion.textContent = questions[index].title;
 
   for (var j = 0; j < 3; j++) {
-    var answers = questions[0].options[j].label;
+    let answers = questions[index].options[j].label;
     // Create list item
     var li = document.createElement("li");
     // Create question option button
     var button = document.createElement("button");
     // Add class name to apply styles
     button.classList.add("button");
+    button.setAttribute("value", answers);
+    button.onclick = pushButton;
     // Add button label
     li.appendChild(button);
     button.textContent = answers;
     answersOnQuestions.appendChild(li);
   }
 
-// how to make hint show up?????
+
+// how to make hint show up  and to switch page????????????????
   button.addEventListener("click", function () {
-    var correctAnswer = questions[0].options[0].label;
-    if (correctAnswer) {
-      var line = document.createElement("hr");
-      hintAnswer.hasPointerCapture(line);
-      hintAnswer.textContent = "Correct";
-      console.log(correctAnswer);
-    } 
+    
   });
 }
+// correctAnswers[index].optionId
+function pushButton (){
+  if(index===questions.length){
+    //this is end of quiz
+}
+var correctAnswer = correctAnswers[index].optionId;
+  index++;
+console.log(this.value);
 
-var correctAnswer = questions[0].options[1].label;
+  if (correctAnswer===this.value) {
+    setTimeout(function(){
+      hintAnswer.textContent="";
+      lineH.innerHTML="";
 
-// console.log(questions[0].options[1].label)
+    }, 1000);
 
-// for (var i = 0; i < questions.length; i++) {
-//   var titles = questions[i].title;
-//   if (logoPage.setAttribute("style", "display:none")) {
-//     // questionPage.setAttribute("style", "display: block")
-//     // titleQuestion.textContent=questions[0].title;
-//   }
+    var line = document.createElement("hr");
+    lineH.appendChild(line);
+    hintAnswer.textContent = "Correct";
+    console.log("correct");
+  } 
 
-//   //   for (var j = 0; j < questions[0].options.length; j++) {
-//   //     var answers = questions[i].options[j].label;
-//   //     console.log(answers);
-//   //   }
-//   // var answers = questions[i].options[i].label
+  showQuestion();
+  console.log("click")
+}
 
-//   //   console.log(titles + " " + answers);
-// }
+
