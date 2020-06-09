@@ -49,12 +49,17 @@
       </section>
 
       <section>
-        <div class="question" class="hide">
+        <div id="question" class="hide">
           <div class="container">
             <div class="row justify-content-md-center">
               <div class="col-sm-6">
                 <h1 id="question-title" class="title"></h1>
-                <ul id="question-options" class="options"></ul>
+                <ul id="question-options" class="options">
+                  <!-- <li class="options"><button id="choice-1"></button></li>
+                  <li class="options"><button id="choice-2"></button></li>
+                  <li class="options"><button id="choice-3"></button></li>
+                  <li class="options"><button id="choice-4"></button></li> -->
+                </ul>
                 <p id="question-hint" class="hint hide"></p>
               </div>
             </div>
@@ -95,7 +100,9 @@
                 <button id="go-back-button" class="button">
                   Go Back
                 </button>
-                <button id="clear-highscore-button" class="button"> Clear Highscores</button>
+                <button id="clear-highscore-button" class="button">
+                  Clear Highscores
+                </button>
               </div>
             </div>
           </div>

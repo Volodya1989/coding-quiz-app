@@ -75,8 +75,40 @@
   </body>
 </html>
 
-<!-- <div class="container">
-  <div class="raw">
-    <h1>Coding Quiz Challenge</h1>
-  </div>
-</div> -->
+<script>
+  const renderStep = (stepId) => {
+  // Find qeustion by passed stepId
+  const question = questions.find(({ id }) => id === stepId);
+
+  // Set current question title
+  questionTitle.textContent = question.title;
+
+  // Remove all existing question buttons
+  questionOptionsList.innerHTML = '';
+
+  // Render question options
+  question.options.forEach((option) => {
+    // Create list item
+    const li = document.createElement('li');
+    // Create question option button
+    const button = document.createElement('button');
+    // Add class name to apply styles
+    button.classList.add('button');
+    // Add button label
+    button.textContent = option.label;
+
+    button.addEventListener('click', () => {
+      // Find correct answer object by current answer id
+      const correctAnswer = correctAnswers.find(({ questionId }) => questionId === question.id);
+      // Check if answered correctly
+      const answeredCorrectly = correctAnswer.optionId === option.id
+
+      // Increment correct answers if answered correctly
+      if (answeredCorrectly) ++state.correctAnswers;
+      if (!answeredCorrectly) state.score = state.score - 10;
+
+      // Show hint whether anwsered corretly or not
+      showHint(answeredCorrectly);
+      goToNextStep();
+    });
+</script>
