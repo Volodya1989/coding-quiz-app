@@ -95,15 +95,15 @@ var questions = [
     options: [
       {
         id: 1,
-        label: "1. Answer 5A",
+        label: "1. Answer 6A",
       },
       {
         id: 0,
-        label: "2. Answer 5B",
+        label: "2. Answer 6B",
       },
       {
         id: 0,
-        label: "3.Answer 5C",
+        label: "3.Answer 6C",
       },
     ],
   },
