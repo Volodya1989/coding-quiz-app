@@ -145,8 +145,12 @@ var hintAnswer = document.querySelector("#question-hint");
 var lineH = document.querySelector("#line");
 var allDonePage = document.querySelector("#user");
 var timeEl = document.querySelector("#timer");
-var header = document.querySelector(".header")
-var finalScore = document.querySelector("#final-score")
+var header = document.querySelector(".header");
+var finalScore = document.querySelector("#final-score");
+var submitInitialsForm = document.querySelector("#initials-form");
+var userInitialsInput = document.querySelector("#user-name");
+var summaryPage = document.querySelector("#summary");
+var index = 0;
 
 // countdown timer
 var secondsLeft = 75;
@@ -155,9 +159,9 @@ function countDownTimer() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if (secondsLeft === -1 || (index == 5)) {
+    if (secondsLeft === -1 || index == 5) {
       clearInterval(timerInterval);
-    } 
+    }
   }, 1000);
 }
 function hideWelcomePage() {
@@ -169,7 +173,6 @@ startQuizBtn.addEventListener("click", function () {
   hideWelcomePage();
   showQuestion();
 });
-var index = 0;
 
 function showQuestion() {
   answersOnQuestions.innerHTML = "";
@@ -197,12 +200,11 @@ function pushButton() {
   if (index == 4) {
     //this is end of quiz
 
-    hideQuestionPage(); 
-    showInitialsPage();  
-
+    hideQuestionPage();
+    showInitialsPage();
   }
-  console.log("questions:" + questions.length + "index" +index );
-  
+  console.log("questions:" + questions.length + "index" + index);
+
   var correctAnswer = correctAnswers[index].optionId;
   index++;
   console.log(this.value);
@@ -230,6 +232,8 @@ function pushButton() {
     lineH.appendChild(line);
     hintAnswer.textContent = "Wrong";
     console.log("wrong");
+    // needed to substract from countdown timer!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    timeEl.textContent = secondsLeft - 15;
   }
 
   showQuestion();
@@ -237,9 +241,27 @@ function pushButton() {
 }
 function showInitialsPage() {
   allDonePage.setAttribute("style", "display: block");
-  finalScore.textContent=secondsLeft;
+  finalScore.textContent = secondsLeft;
 }
-function hideQuestionPage(){
+function hideQuestionPage() {
   titleQuestion.setAttribute("style", "display: none");
-  // timeEl.setAttribute("style", "display: none");
+}
+
+submitInitialsForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  var usernInitials = userInitialsInput.value.trim();
+  hideInitialsAndHeaderPages();
+  printedInitialsAndScore()
+  console.log(usernInitials);
+});
+
+function hideInitialsAndHeaderPages() {
+  allDonePage.setAttribute("style", "display: none");
+  header.setAttribute("style", "display: none");
+}
+
+function printedInitialsAndScore() {
+  summaryPage.setAttribute("style", "display: block");
+  // finalScore.textContent = secondsLeft;
 }
