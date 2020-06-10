@@ -130,7 +130,7 @@ var count = localStorage.getItem("count");
 var clearHighscore = document.querySelector("#clear-highscore-button");
 var lastPage = document.querySelector("#summary");
 var goBackButton = document.querySelector("#go-back-button-2");
-//index is used for pushButton function to move forvard questions
+//index is used for pushButton function to move forward questions
 var index = 0;
 
 // countdown timer
@@ -186,13 +186,6 @@ function showQuestion() {
 function pushButton() {
   var correctAnswer = correctAnswers[index].optionId;
   var lastQuestionIndex = questions.length - 1;
-  //this is end of quiz
-  if (index < lastQuestionIndex) {
-    index++;
-  } else {
-    hideQuestionPage();
-    showInitialsPage();
-  }
   //if answer is correct user will see hint correct or wrong for duration of 1 second
   if (correctAnswer === this.value) {
     setTimeout(function () {
@@ -221,17 +214,33 @@ function pushButton() {
     // substract from countdown timer
     secondsLeft = secondsLeft - 15;
     timeEl.textContent = secondsLeft;
+
+    if (secondsLeft <= 0) {
+      secondsLeft = 0;
+      showInitialsPage();
+      timeEl.textContent = 0;
+    }
+    console.log(secondsLeft);
   }
   //set timeot for questions and answers to be in sync with hint timeout time
   setTimeout(function () {
     showQuestion();
   }, 1000);
+
+  //this is end of quiz
+  if (index < lastQuestionIndex) {
+    index++;
+  } else {
+    hideQuestionPage();
+    showInitialsPage();
+  }
 }
 
 //function responsible for displaying page where user input initials
 function showInitialsPage() {
   allDonePage.setAttribute("style", "display: block");
   finalScore.textContent = secondsLeft;
+  console.log(secondsLeft);
 }
 //function responsible for hiding last question with answers
 function hideQuestionPage() {
@@ -262,7 +271,7 @@ function printedInitialsAndScore() {
 
   var lastUserInitials = JSON.parse(localStorage.getItem("userName"));
   var finalSc = (finalScore.textContent = secondsLeft);
-  scorePrinted.innerHTML = "1." + " " + lastUserInitials + " - " + finalSc;
+  scorePrinted.innerHTML = "1." + " " + lastUserInitials + " : " + finalSc;
 }
 //listener that reset the page
 clearHighscore.addEventListener("click", function () {
