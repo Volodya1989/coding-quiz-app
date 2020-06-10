@@ -1,50 +1,71 @@
-# gt-hw-coding-quiz-app
+# Coding Quiz Application
 
-# gt-hw-code-quiz-application
+![badmath](https://img.shields.io/badge/Coding-Quiz%20App-red)
 
-# 04 Web APIs: Code Quiz
+![Contributor Covenant](https://img.shields.io/badge/license-MIT-brightgreen)
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
 
-## User Story
+## Table of Contents
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [URL](#url)
+* [License](#mit_license)
 
-## Acceptance Criteria
+## Installation
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
+1. Clone the repo.
+2. Run the index.html file in browser.
 
-WHEN I answer a question
-THEN I am presented with another question
+## Usage
 
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
+This Coding Quiz Application was build by using best practeses of web development by using HTML, CSS, Bootstrap Library and JavaScript.
 
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
+This application is intended for people who want to check their knowledge on JavaScript and its rules.
 
-WHEN the game is over
-THEN I can save my initials and score
-```
 
 The following animation demonstrates the application functionality:
 
 ![code quiz](./Assets/04-web-apis-homework-demo.gif)
 
-### Review
+## Credits
 
-You are required to submit the following for review:
+This was a solo project comlepeted by Volodymyr Petrytsya as homework for the Georgia Tech, FullStack Flex program.
 
-* The URL of the functional, deployed application.
+## URL
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+[Link to Deployed Coding Quiz Application  ](https://volodya1989.github.io/gt-hw-coding-quiz-app/)
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+## MIT_License 
+
+Copyright (c) [2020] [Volodymyr Petrytsya]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+ <!-- ## Contributing
+
+If you would like to contribute to this project, please follow the [Contributor Covenant](https://www.contributor-covenant.org/) guidelines.  -->
+
+
+
+
+
