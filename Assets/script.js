@@ -1,91 +1,113 @@
 var questions = [
   {
     id: 0,
-    title: "question 1__",
+    title: "Commonly used data types DO NOT include:",
     options: [
       {
         id: 0,
-        label: "1. Answer 1A",
+        label: "1. strings",
       },
       {
         id: 1,
-        label: "2. Answer 1B",
+        label: "2. booleans",
       },
       {
         id: 2,
-        label: "3.Answer 1C",
+        label: "3. alerts",
+      },
+      {
+        id: 4,
+        label: "4. numbers",
       },
     ],
   },
   {
     id: 1,
-    title: "question 2__",
+    title: "The condition in if / else statement is enclosed within _____.",
     options: [
       {
         id: 1,
-        label: "1. Answer 2A",
+        label: "1. quotes",
       },
       {
         id: 0,
-        label: "2. Answer 2B",
+        label: "2. curly brackets",
       },
       {
         id: 0,
-        label: "3.Answer 2C",
+        label: "3. parentheses",
+      },
+      {
+        id: 0,
+        label: "4. squere brackets",
       },
     ],
   },
   {
     id: 2,
-    title: "question 3__",
+    title: "Arrays in JavaScript can be used to store _____.",
     options: [
       {
         id: 1,
-        label: "1. Answer 3A",
+        label: "1. numbers and strings",
       },
       {
         id: 0,
-        label: "2. Answer 3B",
+        label: "2. other arrays",
       },
       {
         id: 0,
-        label: "3.Answer 3C",
+        label: "3. booleans",
+      },
+      {
+        id: 0,
+        label: "4. all of the above",
       },
     ],
   },
   {
     id: 3,
-    title: "question 4__",
+    title:
+      "String values must be enclosed within _____ when being assigned to variables",
     options: [
       {
         id: 1,
-        label: "1. Answer 4A",
+        label: "1. commas",
       },
       {
         id: 0,
-        label: "2. Answer 4B",
+        label: "2. curly brackets",
       },
       {
         id: 0,
-        label: "3.Answer 4C",
+        label: "3. quotes",
+      },
+      {
+        id: 0,
+        label: "4. parentheses",
       },
     ],
   },
   {
     id: 4,
-    title: "question 5__",
+    title:
+      "A very strong useful tool used during development and debugging for printing content to the debugger is:",
     options: [
       {
         id: 1,
-        label: "1. Answer 5A",
+        label: "1. JavaScript",
       },
       {
         id: 0,
-        label: "2. Answer 5B",
+        label: "2. terminal/bash",
       },
       {
         id: 0,
-        label: "3.Answer 5C",
+        label: "3. for loops",
+      },
+      {
+        id: 0,
+        label: "4. console.log",
       },
     ],
   },
@@ -94,25 +116,24 @@ var questions = [
 var correctAnswers = [
   {
     questionId: 0,
-    optionId: "1. Answer 1A",
+    optionId: "3. alerts",
   },
   {
     questionId: 1,
-    optionId:"3.Answer 2C",
+    optionId: "3. parentheses",
   },
   {
     questionId: 2,
-    optionId: "2. Answer 3B",
+    optionId: "4. all of the above",
   },
   {
     questionId: 3,
-    optionId: "3.Answer 4C",
+    optionId: "3. quotes",
   },
   {
     questionId: 4,
-    optionId: "1. Answer 5A",
+    optionId: "4. console.log",
   },
-  
 ];
 
 var startQuizBtn = document.querySelector("#start-quiz-button");
@@ -181,7 +202,6 @@ function showQuestion() {
 function pushButton() {
   if (index === questions.length) {
     //this is end of quiz
-  
   }
   var correctAnswer = correctAnswers[index].optionId;
   index++;
@@ -200,18 +220,16 @@ function pushButton() {
   }
 
   //not  display wrong answers!!!!!
-
-  else if (correctAnswer !== this.value){
-    setTimeout(function(){
-      hintAnswer.textContent="";
-      lineH.innerHTML="";
+  else if (correctAnswer !== this.value) {
+    setTimeout(function () {
+      hintAnswer.textContent = "";
+      lineH.innerHTML = "";
     }, 1000);
 
     var line = document.createElement("hr");
     lineH.appendChild(line);
     hintAnswer.textContent = "Wrong";
     console.log("wrong");
-
   }
 
   showQuestion();
