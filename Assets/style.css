@@ -10,6 +10,7 @@ body {
 }
 .logo {
   color: blueviolet;
+  flex: 0.7;
 }
 .score {
   text-align: right;

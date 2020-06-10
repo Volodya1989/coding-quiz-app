@@ -161,9 +161,9 @@ function countDownTimer() {
   }, 1000);
 }
 function hideWelcomePage() {
-  var logoPage = document.querySelector(".logo");
+  // var logoPage = document.querySelector(".logo");
   welcomePage.setAttribute("style", "display: none");
-  logoPage.setAttribute("style", "display:none");
+  // logoPage.setAttribute("style", "display:none");
 }
 
 startQuizBtn.addEventListener("click", function () {
@@ -242,5 +242,5 @@ function showInitialsPage() {
 }
 function hideQuestionPage() {
   titleQuestion.setAttribute("style", "display: none");
-  header.setAttribute("style", "display: none");
+  timeEl.setAttribute("style", "display: none");
 }
