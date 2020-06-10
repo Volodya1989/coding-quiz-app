@@ -145,25 +145,23 @@ var hintAnswer = document.querySelector("#question-hint");
 var lineH = document.querySelector("#line");
 var allDonePage = document.querySelector("#user");
 var timeEl = document.querySelector("#timer");
-var header = document.querySelector(".header");
-var finalScore = document.querySelector("#final-score");
+var header = document.querySelector(".header")
+var finalScore = document.querySelector("#final-score")
 
-// countdown timer.
+// countdown timer
 var secondsLeft = 75;
 function countDownTimer() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if (secondsLeft === -1) {
+    if (secondsLeft === -1 || (index == 5)) {
       clearInterval(timerInterval);
-    }
+    } 
   }, 1000);
 }
 function hideWelcomePage() {
-  // var logoPage = document.querySelector(".logo");
   welcomePage.setAttribute("style", "display: none");
-  // logoPage.setAttribute("style", "display:none");
 }
 
 startQuizBtn.addEventListener("click", function () {
@@ -199,11 +197,12 @@ function pushButton() {
   if (index == 4) {
     //this is end of quiz
 
-    hideQuestionPage();
-    showInitialsPage();
-  }
-  console.log("questions:" + questions.length + "index" + index);
+    hideQuestionPage(); 
+    showInitialsPage();  
 
+  }
+  console.log("questions:" + questions.length + "index" +index );
+  
   var correctAnswer = correctAnswers[index].optionId;
   index++;
   console.log(this.value);
@@ -238,9 +237,9 @@ function pushButton() {
 }
 function showInitialsPage() {
   allDonePage.setAttribute("style", "display: block");
-  finalScore.textContent = secondsLeft;
+  finalScore.textContent=secondsLeft;
 }
-function hideQuestionPage() {
+function hideQuestionPage(){
   titleQuestion.setAttribute("style", "display: none");
-  timeEl.setAttribute("style", "display: none");
+  // timeEl.setAttribute("style", "display: none");
 }
