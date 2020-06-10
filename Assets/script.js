@@ -145,8 +145,8 @@ var hintAnswer = document.querySelector("#question-hint");
 var lineH = document.querySelector("#line");
 var allDonePage = document.querySelector("#user");
 var timeEl = document.querySelector("#timer");
-var header = document.querySelector(".header")
-var finalScore = document.querySelector("#final-score")
+var header = document.querySelector(".header");
+var finalScore = document.querySelector("#final-score");
 
 // countdown timer.
 var secondsLeft = 75;
@@ -199,12 +199,11 @@ function pushButton() {
   if (index == 4) {
     //this is end of quiz
 
-    submitInitials();
-    
-
+    hideQuestionPage();
+    showInitialsPage();
   }
-  console.log("questions:" + questions.length + "index" +index );
-  
+  console.log("questions:" + questions.length + "index" + index);
+
   var correctAnswer = correctAnswers[index].optionId;
   index++;
   console.log(this.value);
@@ -237,9 +236,11 @@ function pushButton() {
   showQuestion();
   console.log("click");
 }
-function submitInitials() {
-  questionPage.setAttribute("style", "display: none");
-  header.setAttribute("style", "display: none");
+function showInitialsPage() {
   allDonePage.setAttribute("style", "display: block");
-  finalScore.textContent=secondsLeft;
+  finalScore.textContent = secondsLeft;
+}
+function hideQuestionPage() {
+  titleQuestion.setAttribute("style", "display: none");
+  header.setAttribute("style", "display: none");
 }
