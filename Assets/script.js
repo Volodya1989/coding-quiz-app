@@ -148,11 +148,12 @@ var timeEl = document.querySelector("#timer");
 var header = document.querySelector(".header");
 var finalScore = document.querySelector("#final-score");
 var submitInitialsForm = document.querySelector("#initials-form");
-var printedScorePage = document.querySelector("#printed-score")
-var scorePrinted = document.querySelector("#highscores")
+var printedScorePage = document.querySelector("#printed-score");
+var scorePrinted = document.querySelector("#highscores");
 var count = localStorage.getItem("count");
-var summaryPage = document.querySelector("#summary");
-
+var clearHighscore = document.querySelector("#clear-highscore-button");
+var lastPage = document.querySelector("#summary");
+var goBackButton = document.querySelector("#go-back-button-2");
 var index = 0;
 
 // countdown timer
@@ -252,41 +253,47 @@ function hideQuestionPage() {
 
 submitInitialsForm.addEventListener("submit", function (event) {
   event.preventDefault();
-//user initials submitted
+  //user initials submitted
 
-var userName = document.querySelector("#userName").value;
-localStorage.setItem("userName", JSON.stringify(userName));
+  var userName = document.querySelector("#userName").value;
+  localStorage.setItem("userName", JSON.stringify(userName));
 
   // var usernInitials = userInitialsInput.value.trim();
   hideInitialsAndHeaderPages();
-  printedInitialsAndScore()
+  printedInitialsAndScore();
   console.log(userName);
 });
 
 function hideInitialsAndHeaderPages() {
-
   allDonePage.setAttribute("style", "display: none");
   header.setAttribute("style", "display: none");
 }
 
 function printedInitialsAndScore() {
-
   printedScorePage.setAttribute("style", "display: block");
 
   var lastUserInitials = JSON.parse(localStorage.getItem("userName"));
-  var finalSc = finalScore.textContent = secondsLeft;
-    // Create list item
+  var finalSc = (finalScore.textContent = secondsLeft);
+  // Create list item
   // var li = document.createElement("li");
 
   // Create question option button
   // Added content
-  scorePrinted.innerHTML = "1." + " " + lastUserInitials + " " + " - " + finalSc; 
+  scorePrinted.innerHTML =
+    "1." + " " + lastUserInitials + " " + " - " + finalSc;
   // Add button label
   // ul.appendChild(li);
   // button.textContent = answers;
   // answersOnQuestions.appendChild(li);
 
   // finalScore.textContent = secondsLeft;
-
-
 }
+
+clearHighscore.addEventListener("click", function () {
+  event.preventDefault();
+
+  printedScorePage.setAttribute("style", "display: none");
+  lastPage.setAttribute("style", "display: block");
+});
+
+goBackButton.addEventListener("click", function () {});
