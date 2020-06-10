@@ -73,3 +73,16 @@ li {
 #question-options {
   padding-left: 0;
 }
+#highscores {
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: lightgrey;
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+.high-scores{
+  padding: 0;
+}
