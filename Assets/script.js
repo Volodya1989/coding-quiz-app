@@ -1,3 +1,6 @@
+//Volodymyr Petrytsya   06/10/20
+
+// questions and answers are placed in the array with objects
 var questions = [
   {
     title: "Commonly used data types DO NOT include:",
@@ -88,6 +91,7 @@ var questions = [
   },
 ];
 
+// answers for comparison are placed in the array with objects
 var correctAnswers = [
   {
     optionId: "3. alerts",
@@ -106,6 +110,7 @@ var correctAnswers = [
   },
 ];
 
+//selectors are defined
 var startQuizBtn = document.querySelector("#start-quiz-button");
 var welcomePage = document.querySelector("#greeting");
 var questionPage = document.querySelector("#question");
@@ -125,6 +130,7 @@ var count = localStorage.getItem("count");
 var clearHighscore = document.querySelector("#clear-highscore-button");
 var lastPage = document.querySelector("#summary");
 var goBackButton = document.querySelector("#go-back-button-2");
+//index is used for pushButton function to move forvard questions
 var index = 0;
 
 // countdown timer
@@ -140,16 +146,20 @@ function countDownTimer() {
     }
   }, 1000);
 }
+
+//function to hide welcome page
 function hideWelcomePage() {
   welcomePage.setAttribute("style", "display: none");
 }
 
+//add listener added to start quiz button and user is switched to page with questions
 startQuizBtn.addEventListener("click", function () {
   countDownTimer();
   hideWelcomePage();
   showQuestion();
 });
 
+//function to hide and show dynamically 5 questions
 function showQuestion() {
   answersOnQuestions.innerHTML = "";
   questionPage.setAttribute("style", "display: block");
@@ -172,6 +182,7 @@ function showQuestion() {
   }
 }
 
+//this function responsible on events that suppose to happen after user clicks on one of the answers
 function pushButton() {
   var correctAnswer = correctAnswers[index].optionId;
   var lastQuestionIndex = questions.length - 1;
@@ -182,11 +193,7 @@ function pushButton() {
     hideQuestionPage();
     showInitialsPage();
   }
-
-  console.log("questions:" + questions.length + "index" + index);
-
-  console.log(this.value);
-
+  //if answer is correct user will see hint correct or wrong for duration of 1 second
   if (correctAnswer === this.value) {
     setTimeout(function () {
       hintAnswer.textContent = "";
@@ -210,65 +217,56 @@ function pushButton() {
     lineH.appendChild(line);
     hintAnswer.textContent = "Wrong";
     console.log("wrong");
+
     // substract from countdown timer
     secondsLeft = secondsLeft - 15;
     timeEl.textContent = secondsLeft;
   }
-
+  //set timeot for questions and answers to be in sync with hint timeout time
   setTimeout(function () {
     showQuestion();
   }, 1000);
-  console.log("click");
 }
+
+//function responsible for displaying page where user input initials
 function showInitialsPage() {
   allDonePage.setAttribute("style", "display: block");
   finalScore.textContent = secondsLeft;
 }
+//function responsible for hiding last question with answers
 function hideQuestionPage() {
   titleQuestion.setAttribute("style", "display: none");
   answersOnQuestions.setAttribute("style", "display: none");
 }
 
+//listener that responsible storing users initials in local storage
 submitInitialsForm.addEventListener("submit", function (event) {
   event.preventDefault();
   //user initials submitted
-
   var userName = document.querySelector("#userName").value;
   localStorage.setItem("userName", JSON.stringify(userName));
-
-  // var usernInitials = userInitialsInput.value.trim();
   hideInitialsAndHeaderPages();
   printedInitialsAndScore();
   console.log(userName);
 });
 
+//function responsible for hiding initial input page
 function hideInitialsAndHeaderPages() {
   allDonePage.setAttribute("style", "display: none");
   header.setAttribute("style", "display: none");
 }
 
+//function responsible for printing score and users initials by taking them from local storage
 function printedInitialsAndScore() {
   printedScorePage.setAttribute("style", "display: block");
 
   var lastUserInitials = JSON.parse(localStorage.getItem("userName"));
   var finalSc = (finalScore.textContent = secondsLeft);
-  // Create list item
-  // var li = document.createElement("li");
-
-  // Added content
-  // li.textContent = "1." + " " + lastUserInitials + " - " + finalSc;
-
-  // li.setAttribute("data-index", 1)
-  // Add list item
-  // liAdded.appendChild(li);
   scorePrinted.innerHTML = "1." + " " + lastUserInitials + " - " + finalSc;
 }
-
+//listener that reset the page
 clearHighscore.addEventListener("click", function () {
   event.preventDefault();
-
   printedScorePage.setAttribute("style", "display: none");
   lastPage.setAttribute("style", "display: block");
 });
-
-goBackButton.addEventListener("click", function () {});
