@@ -148,8 +148,11 @@ var timeEl = document.querySelector("#timer");
 var header = document.querySelector(".header");
 var finalScore = document.querySelector("#final-score");
 var submitInitialsForm = document.querySelector("#initials-form");
-var userInitialsInput = document.querySelector("#user-name");
+var printedScorePage = document.querySelector("#printed-score")
+var scorePrinted = document.querySelector("#highscores")
+var count = localStorage.getItem("count");
 var summaryPage = document.querySelector("#summary");
+
 var index = 0;
 
 // countdown timer
@@ -249,19 +252,41 @@ function hideQuestionPage() {
 
 submitInitialsForm.addEventListener("submit", function (event) {
   event.preventDefault();
+//user initials submitted
 
-  var usernInitials = userInitialsInput.value.trim();
+var userName = document.querySelector("#userName").value;
+localStorage.setItem("userName", JSON.stringify(userName));
+
+  // var usernInitials = userInitialsInput.value.trim();
   hideInitialsAndHeaderPages();
   printedInitialsAndScore()
-  console.log(usernInitials);
+  console.log(userName);
 });
 
 function hideInitialsAndHeaderPages() {
+
   allDonePage.setAttribute("style", "display: none");
   header.setAttribute("style", "display: none");
 }
 
 function printedInitialsAndScore() {
-  summaryPage.setAttribute("style", "display: block");
+
+  printedScorePage.setAttribute("style", "display: block");
+
+  var lastUserInitials = JSON.parse(localStorage.getItem("userName"));
+  var finalSc = finalScore.textContent = secondsLeft;
+    // Create list item
+  // var li = document.createElement("li");
+
+  // Create question option button
+  // Added content
+  scorePrinted.innerHTML = "1." + " " + lastUserInitials + " " + " - " + finalSc; 
+  // Add button label
+  // ul.appendChild(li);
+  // button.textContent = answers;
+  // answersOnQuestions.appendChild(li);
+
   // finalScore.textContent = secondsLeft;
+
+
 }
