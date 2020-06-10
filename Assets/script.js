@@ -162,8 +162,9 @@ function countDownTimer() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
+    var lastQuestionIndex = questions.length - 1;
 
-    if (secondsLeft === -1 || index == 5) {
+    if (secondsLeft <= 0 || index == lastQuestionIndex) {
       clearInterval(timerInterval);
     }
   }, 1000);
@@ -183,7 +184,7 @@ function showQuestion() {
   questionPage.setAttribute("style", "display: block");
   titleQuestion.textContent = questions[index].title;
 
-  for (var j = 0; j < questions.length; j++) {
+  for (var j = 0; j < questions[index].options.length; j++) {
     var answers = questions[index].options[j].label;
     // Create list item
     var li = document.createElement("li");
@@ -201,16 +202,20 @@ function showQuestion() {
 }
 
 function pushButton() {
-  if (index == 4) {
-    //this is end of quiz
-
-    hideQuestionPage();
-    showInitialsPage();
+  var correctAnswer = correctAnswers[index].optionId;
+  var lastQuestionIndex = questions.length - 1;
+//this is end of quiz
+  if (index < lastQuestionIndex) {
+    index++;
+  } else {
+     
+     hideQuestionPage();
+     showInitialsPage();
   }
+
   console.log("questions:" + questions.length + "index" + index);
 
-  var correctAnswer = correctAnswers[index].optionId;
-  index++;
+  
   console.log(this.value);
 
   if (correctAnswer === this.value) {
@@ -236,11 +241,14 @@ function pushButton() {
     lineH.appendChild(line);
     hintAnswer.textContent = "Wrong";
     console.log("wrong");
-    // needed to substract from countdown timer!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    timeEl.textContent = secondsLeft - 15;
+    // substract from countdown timer
+    secondsLeft = secondsLeft - 15;
+    timeEl.textContent = secondsLeft;
   }
 
-  showQuestion();
+  setTimeout(function () {
+    showQuestion();
+  }, 1000);
   console.log("click");
 }
 function showInitialsPage() {
@@ -249,6 +257,7 @@ function showInitialsPage() {
 }
 function hideQuestionPage() {
   titleQuestion.setAttribute("style", "display: none");
+  answersOnQuestions.setAttribute("style", "display: none");
 }
 
 submitInitialsForm.addEventListener("submit", function (event) {
@@ -279,12 +288,12 @@ function printedInitialsAndScore() {
 
   // Create question option button
   // Added content
-  scorePrinted.innerHTML =
-    "1." + " " + lastUserInitials + " " + " - " + finalSc;
-  // Add button label
+  // Add list item 
   // ul.appendChild(li);
-  // button.textContent = answers;
-  // answersOnQuestions.appendChild(li);
+  scorePrinted.innerHTML =
+    "1." + " " + lastUserInitials + " - " + finalSc;
+  
+  
 
   // finalScore.textContent = secondsLeft;
 }
