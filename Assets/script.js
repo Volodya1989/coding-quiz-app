@@ -1,112 +1,87 @@
 var questions = [
   {
-    id: 0,
     title: "Commonly used data types DO NOT include:",
     options: [
       {
-        id: 0,
         label: "1. strings",
       },
       {
-        id: 1,
         label: "2. booleans",
       },
       {
-        id: 2,
         label: "3. alerts",
       },
       {
-        id: 4,
         label: "4. numbers",
       },
     ],
   },
   {
-    id: 1,
     title: "The condition in if / else statement is enclosed within _____.",
     options: [
       {
-        id: 1,
         label: "1. quotes",
       },
       {
-        id: 0,
         label: "2. curly brackets",
       },
       {
-        id: 0,
         label: "3. parentheses",
       },
       {
-        id: 0,
         label: "4. squere brackets",
       },
     ],
   },
   {
-    id: 2,
     title: "Arrays in JavaScript can be used to store _____.",
     options: [
       {
-        id: 1,
         label: "1. numbers and strings",
       },
       {
-        id: 0,
         label: "2. other arrays",
       },
       {
-        id: 0,
         label: "3. booleans",
       },
       {
-        id: 0,
         label: "4. all of the above",
       },
     ],
   },
   {
-    id: 3,
     title:
       "String values must be enclosed within _____ when being assigned to variables",
     options: [
       {
-        id: 1,
         label: "1. commas",
       },
       {
-        id: 0,
         label: "2. curly brackets",
       },
       {
-        id: 0,
         label: "3. quotes",
       },
       {
-        id: 0,
         label: "4. parentheses",
       },
     ],
   },
   {
-    id: 4,
     title:
       "A very strong useful tool used during development and debugging for printing content to the debugger is:",
     options: [
       {
-        id: 1,
         label: "1. JavaScript",
       },
       {
-        id: 0,
         label: "2. terminal/bash",
       },
       {
-        id: 0,
         label: "3. for loops",
       },
       {
-        id: 0,
         label: "4. console.log",
       },
     ],
@@ -115,23 +90,18 @@ var questions = [
 
 var correctAnswers = [
   {
-    questionId: 0,
     optionId: "3. alerts",
   },
   {
-    questionId: 1,
     optionId: "3. parentheses",
   },
   {
-    questionId: 2,
     optionId: "4. all of the above",
   },
   {
-    questionId: 3,
     optionId: "3. quotes",
   },
   {
-    questionId: 4,
     optionId: "4. console.log",
   },
 ];
@@ -150,6 +120,7 @@ var finalScore = document.querySelector("#final-score");
 var submitInitialsForm = document.querySelector("#initials-form");
 var printedScorePage = document.querySelector("#printed-score");
 var scorePrinted = document.querySelector("#highscores");
+var liAdded = document.querySelector(".high-scores");
 var count = localStorage.getItem("count");
 var clearHighscore = document.querySelector("#clear-highscore-button");
 var lastPage = document.querySelector("#summary");
@@ -204,18 +175,16 @@ function showQuestion() {
 function pushButton() {
   var correctAnswer = correctAnswers[index].optionId;
   var lastQuestionIndex = questions.length - 1;
-//this is end of quiz
+  //this is end of quiz
   if (index < lastQuestionIndex) {
     index++;
   } else {
-     
-     hideQuestionPage();
-     showInitialsPage();
+    hideQuestionPage();
+    showInitialsPage();
   }
 
   console.log("questions:" + questions.length + "index" + index);
 
-  
   console.log(this.value);
 
   if (correctAnswer === this.value) {
@@ -286,16 +255,13 @@ function printedInitialsAndScore() {
   // Create list item
   // var li = document.createElement("li");
 
-  // Create question option button
   // Added content
-  // Add list item 
-  // ul.appendChild(li);
-  scorePrinted.innerHTML =
-    "1." + " " + lastUserInitials + " - " + finalSc;
-  
-  
+  // li.textContent = "1." + " " + lastUserInitials + " - " + finalSc;
 
-  // finalScore.textContent = secondsLeft;
+  // li.setAttribute("data-index", 1)
+  // Add list item
+  // liAdded.appendChild(li);
+  scorePrinted.innerHTML = "1." + " " + lastUserInitials + " - " + finalSc;
 }
 
 clearHighscore.addEventListener("click", function () {
