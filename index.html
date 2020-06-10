@@ -12,7 +12,6 @@
     />
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
-
   <body>
     <header class="header">
       <div class="container">
@@ -26,7 +25,6 @@
         </div>
       </div>
     </header>
-
     <main>
       <section>
         <div id="greeting" class="align-center">
@@ -36,10 +34,10 @@
                 <h1 class="title">
                   Coding Quiz Challenge
                 </h1>
-                <p class="description">
+                <p>
                   Try to answer following code-related questions within time
                   limit. Keep in mind that incorrect answers will penalize your
-                  score/time by ten seconds.
+                  score/time by fifteen seconds.
                 </p>
                 <button id="start-quiz-button" class="button">
                   Start Quiz
@@ -49,7 +47,6 @@
           </div>
         </div>
       </section>
-
       <section>
         <div id="question" class="hide">
           <div class="container">
@@ -64,7 +61,6 @@
           </div>
         </div>
       </section>
-
       <section>
         <div id="user" class="hide">
           <div class="container">
@@ -73,10 +69,7 @@
                 <h1 id="question-title" class="title">
                   All Done
                 </h1>
-
-                <p class="description">
-                  Your final score is: <span id="final-score"></span>
-                </p>
+                <p>Your final score is: <span id="final-score"></span></p>
                 <div class="user-info">
                   <form id="initials-form">
                     <span>Enter Initials</span>
@@ -91,7 +84,6 @@
           </div>
         </div>
       </section>
-
       <section>
         <div id="printed-score" class="hide">
           <div class="container">
@@ -114,19 +106,17 @@
           </div>
         </div>
       </section>
-
       <section>
         <div id="summary" class="hide">
           <div class="container">
             <div class="row justify-content-md-center">
               <div class="col-sm-6">
                 <h1 id="question-title" class="title">Highscores</h1>
-                <ul  class="scores"></ul>
+                <ul class="scores"></ul>
                 <form>
                   <button id="go-back-button-2" type="submit" class="button">
                     Go Back
                   </button>
-
                   <button id="clear-highscore-button" class="button">
                     Clear Highscores
                   </button>
@@ -137,7 +127,6 @@
         </div>
       </section>
     </main>
-
     <script src="./Assets/script.js"></script>
   </body>
 </html>
