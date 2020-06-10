@@ -143,9 +143,10 @@ var titleQuestion = document.querySelector("#question-title");
 var answersOnQuestions = document.querySelector("#question-options");
 var hintAnswer = document.querySelector("#question-hint");
 var lineH = document.querySelector("#line");
-
+var allDonePage = document.querySelector("#user");
 var timeEl = document.querySelector("#timer");
-// var mainEl = document.getElementById("main");
+var header = document.querySelector(".header")
+var finalScore = document.querySelector("#final-score")
 
 // countdown timer.
 var secondsLeft = 75;
@@ -156,8 +157,6 @@ function countDownTimer() {
 
     if (secondsLeft === -1) {
       clearInterval(timerInterval);
-      submitInitials();
-   
     }
   }, 1000);
 }
@@ -180,7 +179,7 @@ function showQuestion() {
   titleQuestion.textContent = questions[index].title;
 
   for (var j = 0; j < questions.length; j++) {
-    let answers = questions[index].options[j].label;
+    var answers = questions[index].options[j].label;
     // Create list item
     var li = document.createElement("li");
     // Create question option button
@@ -194,15 +193,18 @@ function showQuestion() {
     button.textContent = answers;
     answersOnQuestions.appendChild(li);
   }
-
-  // how to make hint show up  and to switch page????????????????
-  button.addEventListener("click", function () {});
 }
 
 function pushButton() {
-  if (index === questions.length) {
+  if (index == 4) {
     //this is end of quiz
+
+    submitInitials();
+    
+
   }
+  console.log("questions:" + questions.length + "index" +index );
+  
   var correctAnswer = correctAnswers[index].optionId;
   index++;
   console.log(this.value);
@@ -219,7 +221,7 @@ function pushButton() {
     console.log("correct");
   }
 
-  //not  display wrong answers!!!!!
+  //  display wrong answers
   else if (correctAnswer !== this.value) {
     setTimeout(function () {
       hintAnswer.textContent = "";
@@ -235,8 +237,9 @@ function pushButton() {
   showQuestion();
   console.log("click");
 }
-function submitInitials(){
+function submitInitials() {
   questionPage.setAttribute("style", "display: none");
   header.setAttribute("style", "display: none");
   allDonePage.setAttribute("style", "display: block");
+  finalScore.textContent=secondsLeft;
 }
