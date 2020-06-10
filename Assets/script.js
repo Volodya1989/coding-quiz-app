@@ -89,24 +89,6 @@ var questions = [
       },
     ],
   },
-  {
-    id: 5,
-    title: "question 6__",
-    options: [
-      {
-        id: 1,
-        label: "1. Answer 6A",
-      },
-      {
-        id: 0,
-        label: "2. Answer 6B",
-      },
-      {
-        id: 0,
-        label: "3.Answer 6C",
-      },
-    ],
-  },
 ];
 
 var correctAnswers = [
@@ -130,10 +112,7 @@ var correctAnswers = [
     questionId: 4,
     optionId: "1. Answer 5A",
   },
-  {
-    questionId: 5,
-    optionId: "3. Answer 6A",
-  },
+  
 ];
 
 var startQuizBtn = document.querySelector("#start-quiz-button");
