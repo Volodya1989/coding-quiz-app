@@ -154,10 +154,10 @@ function countDownTimer() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if (secondsLeft === 0) {
+    if (secondsLeft === -1) {
       clearInterval(timerInterval);
-      // sendMessage();
-      // timeEl.textContent = "";
+      submitInitials();
+   
     }
   }, 1000);
 }
@@ -234,4 +234,9 @@ function pushButton() {
 
   showQuestion();
   console.log("click");
+}
+function submitInitials(){
+  questionPage.setAttribute("style", "display: none");
+  header.setAttribute("style", "display: none");
+  allDonePage.setAttribute("style", "display: block");
 }
