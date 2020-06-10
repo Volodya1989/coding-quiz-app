@@ -26,12 +26,12 @@ body {
   padding: 2px 10px;
   margin: 3px 0;
 }
-.button:hover{
-  opacity: .7;
+.button:hover {
+  opacity: 0.7;
 }
 
 .hint {
-  color:black;
+  color: black;
 }
 
 .highscores {
@@ -47,7 +47,16 @@ body {
   display: none;
 }
 
+#user {
+  margin: 50px 50px;
+}
+#question {
+  margin: 50px 50px;
+}
 
+#greeting {
+  margin: 50px 50px;
+}
 
 .align-left {
   text-align: left;
@@ -60,10 +69,6 @@ li {
   list-style: none;
 }
 
-
-
 #question-options {
   padding-left: 0;
 }
-
-
